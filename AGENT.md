@@ -4,6 +4,8 @@
 
 This repo owns Cloudflare Worker code for IceBreaker.
 
+Read `docs/system-architecture.md` before changing route direction, auth behavior, or migration order.
+
 ## Rules
 
 - Keep Firebase Auth as the login system.
@@ -25,4 +27,3 @@ This repo owns Cloudflare Worker code for IceBreaker.
 - `npm run ci` passes
 - deploy dry run passes
 - route has one test
-

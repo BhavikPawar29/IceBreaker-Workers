@@ -1,15 +1,8 @@
-function json(data: unknown, init?: ResponseInit): Response {
-  return Response.json(data, init);
-}
+import { livePrompt } from "./features/live/livePrompt";
+import { error, json } from "./shared/http";
 
 function notFound(): Response {
-  return json(
-    {
-      ok: false,
-      error: "NOT_FOUND",
-    },
-    { status: 404 },
-  );
+  return error(404, "NOT_FOUND");
 }
 
 export default {
@@ -28,11 +21,14 @@ export default {
       return json({
         ok: true,
         service: "icebreaker-workers",
-        routes: ["/health"],
+        routes: ["/health", "/api/live-prompt"],
       });
+    }
+
+    if (url.pathname === "/api/live-prompt") {
+      return livePrompt(request, env);
     }
 
     return notFound();
   },
-} satisfies ExportedHandler<Env>;
-
+} satisfies ExportedHandler<Cloudflare.Env>;
