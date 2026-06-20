@@ -5,11 +5,11 @@
   "compatibility_date": "2026-06-17",
   "compatibility_flags": ["nodejs_compat"],
   "vars": {
-    "ENVIRONMENT": "development"
+    "ENVIRONMENT": "development",
+    "FIREBASE_PROJECT_ID": "icebreaker-70b95"
   },
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
   }
 }
-
